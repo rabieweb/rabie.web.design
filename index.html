@@ -1,169 +1,85 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rabie Web Design</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background-color: #000;
-      color: #d4af37;
-      font-family: "Tajawal", sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
+<p class="section-sub" id="whyDesc">4 أسباب قصيرة توضح تفوّقنا.</p>
+  <div class="nums">
+    <div class="num"><b>01.</b><div>تصميم احترافي يحكي هويتك.</div></div>
+    <div class="num"><b>02.</b><div>تسليم سريع ومواعيد دقيقة.</div></div>
+    <div class="num"><b>03.</b><div>أسعار منافسة وخطط مرنة.</div></div>
+    <div class="num"><b>04.</b><div>دعم بعد الإطلاق وتحديثات.</div></div>
+  </div>
+</div>
 
-    header {
-      padding: 40px 0 20px;
-    }
+<!-- ===== CONTACT ===== -->
+<div class="wrap" id="contact">
+  <h2 class="section-title" id="contactTitle">تواصل معنا الآن</h2>
+  <p class="section-sub" id="contactDesc">ارسل تفاصيلك وسنعاودك سريعًا.</p>
+  <form id="contact-form" onsubmit="sendMail(event)" style="max-width:640px;margin:auto">
+    <input name="name" placeholder="الاسم الكامل" required>
+    <input name="email" type="email" placeholder="البريد الإلكتروني" required>
+    <input name="phone" placeholder="رقم الهاتف">
+    <input name="title" placeholder="عنوان الرسالة (اختياري)">
+    <textarea name="message" rows="6" placeholder="احكي لنا عن فكرتك وما الذي تريد تنفيذه" required></textarea>
+    <button class="btn" type="submit">إرسال</button>
+  </form>
+</div>
 
-    header img {
-      width: 220px;
-    }
-
-    h1 {
-      font-size: 36px;
-      margin-top: 20px;
-      letter-spacing: 1px;
-    }
-
-    p {
-      color: #c9a227;
-      max-width: 700px;
-      margin: 10px auto 30px;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: transparent;
-      border: 2px solid #d4af37;
-      border-radius: 10px;
-      color: #d4af37;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #d4af37;
-      color: #000;
-    }
-
-    section {
-      padding: 60px 20px;
-    }
-
-    footer {
-      padding: 30px 20px;
-      border-top: 1px solid #333;
-      color: #d4af37;
-      font-size: 16px;
-      background-color: #000;
-    }
-
-    footer .contact-info {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 25px;
-      margin-top: 15px;
-    }
-
-    footer a {
-      color: #d4af37;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 17px;
-      transition: 0.3s;
-    }
-
-    footer a:hover {
-      color: #fff;
-    }
-
-    footer img.icon {
-      width: 24px;
-      height: 24px;
-      filter: invert(82%) sepia(62%) saturate(562%) hue-rotate(5deg) brightness(102%) contrast(90%);
-      transition: 0.3s;
-    }
-
-    footer a:hover img.icon {
-      transform: scale(1.15);
-    }
-
-    input, textarea {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #d4af37;
-      background: #000;
-      color: #d4af37;
-      font-size: 16px;
-    }
-
-    form {
-      max-width: 500px;
-      margin: auto;
-      display: grid;
-      gap: 12px;
-      text-align: right;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <img src="logo.png" alt="Rabie Web Design Logo">
-    <h1>Rabie Web Design</h1>
-    <p>نصمم مواقع أنيقة وسريعة بلونك المفضل وذوقك الخاص.</p>
-    <a href="#contact" class="btn">تواصل معنا</a>
-  </header>
-
-  <section id="services">
-    <h2>خدماتنا</h2>
-    <p>نقدم خدمات تصميم المواقع، تطوير المتاجر الإلكترونية، والبرمجة المخصصة للشركات والأفراد.</p>
-  </section>
-
-  <section id="contact">
-    <h2>تواصل معنا</h2>
-    <form id="contact-form" onsubmit="sendMail(event)">
-      <input type="text" name="name" placeholder="الاسم الكامل" required>
-      <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-      <input type="text" name="title" placeholder="عنوان الرسالة">
-      <textarea name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
-      <button type="submit" class="btn">إرسال</button>
-    </form>
-  </section>
-
-  <footer>
-    <div>© 2025 Rabie Web Design — جميع الحقوق محفوظة</div>
-
-    <div class="contact-info">
-      <!-- يفتح تطبيق البريد مباشرة -->
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap" style="text-align:center">
+    <div style="color:#fff">© 2025 Rabie Web Design — جميع الحقوق محفوظة</div>
+    <div class="contacts" style="margin-top:12px">
       <a href="mailto:Ahmad.adel008@icloud.com" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="icon" alt="Email">
-        <span>Ahmad.adel008@icloud.com</span>
+        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="email"> Ahmad.adel008@icloud.com
       </a>
-
-      <!-- يفتح محادثة واتساب مباشرة -->
       <a href="https://wa.me/60197084613" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" class="icon" alt="WhatsApp">
-        <span>WhatsApp</span>
+        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="whatsapp"> WhatsApp
       </a>
-
-      <!-- يتصل مباشرة -->
       <a href="tel:+60197084613">
-        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" class="icon" alt="Phone">
-        <span>اتصال مباشر</span>
+        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="phone"> اتصال مباشر
       </a>
     </div>
+  </div>
+</footer>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+ (function(){ emailjs.init("gm2FOzpslyw2cnZb5"); })();
+
+ function sendMail(e){
+   e.preventDefault();
+   emailjs.send("service_g4y0mqt","template_ddkdwk",{
+     name:document.querySelector('[name=name]').value,
+     email:document.querySelector('[name=email]').value,
+     phone:document.querySelector('[name=phone]').value,
+     title:document.querySelector('[name=title]').value,
+     message:document.querySelector('[name=message]').value
+   }).then(function(){ alert("تم الإرسال ✅"); document.getElementById('contact-form').reset(); },
+            function(err){ console.error(err); alert("تعذر الإرسال ❌"); });
+ }
+
+ /* بسيط: زر تبديل لغة (AR/EN) */
+ const t = {
+   ar:{heroTitle:"نحول أفكارك إلى مواقع حيّة مذهلة", heroDesc:"نصمم مواقع وتطبيقات بواجهات حديثة وسرعة عالية وتجربة استخدام لطيفة.",
+       ctaMain:"ابدأ مشروعك الآن", ctaMore:"شاهد الخدمات",
+       aboutTitle:"من نحن؟", aboutDesc:"نجمع بين الإبداع والتقنية لنقدم حلول واجهات ومواقع سريعة، متجاوبة، ومهيّأة لمحركات البحث.",
+       servicesTitle:"خدماتنا", servicesDesc:"اختر الخدمة المناسبة لمشروعك — بأسعار منافسة وتسليم سريع.",
+       whyTitle:"ليش تختارنا؟", whyDesc:"4 أسباب قصيرة توضح تفوّقنا.",
+       contactTitle:"تواصل معنا الآن", contactDesc:"ارسل تفاصيلك وسنعاودك سريعًا."},
+   en:{heroTitle:"We turn your ideas into lively websites", heroDesc:"Modern UI, fast performance and delightful UX. Animated, colorful and optimized.",
+       ctaMain:"Start your project", ctaMore:"See services",
+       aboutTitle:"Who we are", aboutDesc:"A creative tech team building fast, responsive and SEO-ready websites.",
+       servicesTitle:"Our Services", servicesDesc:"Pick what fits your goals — competitive pricing and fast delivery.",
+       whyTitle:"Why choose us?", whyDesc:"Four quick reasons that set us apart.",
+       contactTitle:"Contact Us Now", contactDesc:"Send your details and we'll get back quickly."}
+ };
+ const ids=["heroTitle","heroDesc","ctaMain","ctaMore","aboutTitle","aboutDesc","servicesTitle","servicesDesc","whyTitle","whyDesc","contactTitle","contactDesc"];
+ document.
+   getElementById('toggleLang').onclick=function(){
+   const isEN = this.textContent === 'EN';
+   const k = isEN ? 'en' : 'ar';
+   ids.forEach(id=>{ document.getElementById(id).textContent = t[k][id]; });
+   document.documentElement.dir = isEN ? 'ltr' : 'rtl';
+   this.textContent = isEN ? 'AR' : 'EN';
+ };
+</script>
+</body>
+</html>
