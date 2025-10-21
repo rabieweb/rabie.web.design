@@ -6,106 +6,101 @@
 <title>Rabie Web Design</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-  /* Base */
-  ,::before,*::after{box-sizing:border-box}
-  html,body{margin:0}
-  body{font-family:Tajawal,system-ui;background:radial-gradient(1200px 1200px at 110% -10%,#2b2b40 0%,#0b0c10 50%);color:#fff;overflow-x:hidden}
+  :root{
+    --text:#0e0e11; --muted:#60646c; --light:#ffffff;
+    --brand1:#7c3aed; --brand2:#06b6d4; --brand3:#22c55e;
+    --card:#ffffffed; --bg:#0b0c10; --shadow:0 10px 30px rgba(0,0,0,.22);
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:Tajawal,system-ui;background:radial-gradient(1200px 1200px at 110% -10%,#2b2b40 0%,#0b0c10 50%);min-height:100vh;overflow-x:hidden;color:var(--text)}
 
-  /* Hero backdrop (animated) */
+  /* ===== HERO with animated gradient ===== */
   .hero-wrap{position:relative;overflow:hidden;padding-bottom:48px}
-  .hero-bg{position:absolute;inset:-30% -10% -10% -10%;background:conic-gradient(from 200deg at 70% 30%,#7c3aed,#06b6d4,#22c55e,#7c3aed);filter:blur(80px) saturate(140%);animation:swirl 18s linear infinite;opacity:.78}
+  .hero-bg{position:absolute;inset:-30% -10% -10% -10%;background:conic-gradient(from 200deg at 70% 30%,var(--brand1),var(--brand2),var(--brand3),var(--brand1));filter:blur(80px) saturate(140%);animation:swirl 18s linear infinite;opacity:.78}
   @keyframes swirl{to{transform:rotate(360deg)}}
   .float{position:absolute;border-radius:20px;filter:blur(6px);opacity:.55;animation:float 12s ease-in-out infinite}
-  .f1{top:10%;right:6%;width:160px;height:160px;background:linear-gradient(135deg,#ffffffcc,#ffffff08)}
-  .f2{bottom:0;left:4%;width:220px;height:220px;background:linear-gradient(135deg,#ffffffcc,#ffffff10);animation-delay:1.5s}
+  .f1{top:10%;right:5%;width:160px;height:160px;background:linear-gradient(135deg,#ffffffcc,#ffffff05)}
+  .f2{bottom:0;left:4%;width:220px;height:220px;background:linear-gradient(135deg,#ffffffcc,#ffffff08);animation-delay:1.5s}
   @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
 
-  /* Header */
+  /* ===== Header ===== */
   header.nav{position:relative;z-index:3;max-width:1200px;margin:auto;padding:18px 20px;display:flex;align-items:center;justify-content:space-between}
   .brand{display:flex;align-items:center;gap:12px}
   .brand img{width:72px;height:72px;object-fit:contain;filter:drop-shadow(0 6px 16px rgba(0,0,0,.35))}
-  .brand b{font-size:22px;letter-spacing:.5px}
+  .brand b{color:#fff;font-size:22px;letter-spacing:.5px}
   nav a{color:#fff;text-decoration:none;margin-inline:12px;font-weight:800;opacity:.9}
   nav a:hover{opacity:1;text-decoration:underline}
   .lang{background:transparent;border:1px solid #fff;color:#fff;padding:8px 12px;border-radius:10px;cursor:pointer}
 
-  /* Hero */
-  .hero{position:relative;z-index:2;max-width:1100px;margin:40px auto 0;padding:40px 20px;text-align:center}
+  /* ===== Hero text ===== */
+  .hero{position:relative;z-index:2;max-width:1100px;margin:40px auto 0;padding:40px 20px;text-align:center;color:#fff}
   .hero h1{font-size:46px;margin:0 0 12px}
   .hero p{max-width:820px;margin:0 auto 20px;opacity:.95;font-size:18px}
   .cta{display:inline-block;padding:12px 22px;border-radius:12px;border:none;cursor:pointer;font-weight:800}
-  .cta.main{background:#000;color:#fff}
-  .cta.ghost{background:transparent;color:#fff;border:2px solid #fff;margin-inline:8px}
+  .cta.main{background:#000;color:#fff}.cta.ghost{background:transparent;color:#fff;border:2px solid #fff;margin-inline:8px}
 
-  /* Sections */
+  /* ===== Sections ===== */
   .wrap{max-width:1100px;margin:auto;padding:56px 20px}
-  .section-title{text-align:center;font-size:34px;margin:0 0 8px}
-  .section-sub{text-align:center;color:#cfcfe6;margin:0 auto 26px;max-width:780px}
+  .section-title{color:#fff;text-align:center;font-size:34px;margin:0 0 8px}
+  .section-sub{color:#cfcfe6;text-align:center;margin:0 auto 26px;max-width:780px}
 
-  /* Cards */
+  /* ===== Cards ===== */
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-  .card{background:#ffffffee;color:#0e0e11;border:1px solid #e8e8f4;border-radius:16px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.22);transform:translateY(0);transition:.3s}
+  .card{background:var(--card);border:1px solid #e8e8f4;border-radius:16px;padding:18px;box-shadow:var(--shadow);transform:translateY(0);transition:.3s}
   .card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(16,16,40,.25)}
   .card h3{margin:2px 0 8px}
-  .muted{color:#60646c}
   .tag{display:inline-block;font-size:12px;padding:4px 10px;border-radius:999px;color:#fff;margin-bottom:10px}
-  .t1{background:linear-gradient(90deg,#7c3aed,#a78bfa)}
-  .t2{background:linear-gradient(90deg,#06b6d4,#67e8f9)}
-  .t3{background:linear-gradient(90deg,#22c55e,#86efac)}
+  .t1{background:linear-gradient(90deg,var(--brand1),#a78bfa)} .t2{background:linear-gradient(90deg,var(--brand2),#67e8f9)} .t3{background:linear-gradient(90deg,var(--brand3),#86efac)}
+  .muted{color:var(--muted)}
 
-  /* Why */
+  /* ===== Numbers ===== */
   .nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-  .num{background:#0c0f18;border:1px solid #27304a;border-radius:14px;padding:20px}
+  .num{background:#0c0f18;color:#fff;border:1px solid #27304a;border-radius:14px;padding:20px}
   .num b{font-size:28px;color:#9ae6b4}
 
-  /* ===== Phones carousel (3D circular) ===== */
-  .devices-stage{perspective:1000px;height:340px;display:flex;align-items:center;justify-content:center;margin:36px 0}
-  .ring{
-    width:520px;height:280px;position:relative;transform-style:preserve-3d;
-    animation:spin 14s linear infinite;
+  /* ===== iPhone row (Apple-like) ===== */
+  .phones{max-width:1100px;margin:10px auto 30px;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .iphone{
+    background:#0e1020;border-radius:34px;position:relative;height:320px;border:12px solid #1f2335;
+    box-shadow:0 18px 40px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;overflow:hidden;
   }
-  @keyframes spin{to{transform:rotateY(360deg)}}
-  .phone{
-    position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;
-    width:170px;height:280px;border:10px solid #1f2335;border-radius:30px;background:#0e1020;
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
-    transform-style:preserve-3d;
+  .iphone::before{ /* notch */
+    content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:90px;height:10px;border-radius:8px;background:#1f2335;
   }
-  /* positions on the ring */
-  .p1{transform:rotateY(0deg)   translateZ(260px)}
-  .p2{transform:rotateY(120deg) translateZ(260px)}
-  .p3{transform:rotateY(240deg) translateZ(260px)}
-  /* screen */
   .screen{
-    position:absolute;inset:10px;border-radius:22px;background:linear-gradient(160deg,#7c3aed,#06b6d4);display:grid;place-items:center;
+    position:absolute;inset:12px;border-radius:22px;background:linear-gradient(160deg,#7c3aed,#06b6d4);
+    display:grid;place-items:center;text-align:center;padding:16px;color:#fff
   }
-  .badge{display:grid;place-items:center;width:90px;height:90px;border-radius:20px;background:#0b1024cc;box-shadow:0 6px 18px rgba(0,0,0,.35)}
-  .badge svg{width:58px;height:58px}
-  .js{background:#f7df1e;color:#000;border-radius:12px;padding:8px 12px;font-weight:900;font-size:26px;box-shadow:0 6px 18px rgba(247,223,30,.45)}
-  .css{background:#264de4;border-radius:12px;padding:8px 12px;color:#fff;font-weight:900;font-size:22px;box-shadow:0 6px 18px rgba(38,77,228,.4)}
-  .code{color:#ffffff}
+  .chip{
+    display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;
+    background:#0b1120c9;border:1px solid #384766;backdrop-filter:blur(2px);box-shadow:0 8px 18px rgba(0,0,0,.25);font-weight:800
+  }
+  .chip svg{width:22px;height:22px}
+  .phone-title{margin-top:12px;font-weight:800}
+  .phone-desc{opacity:.92;font-size:14px;margin-top:8px}
+  /* subtle float */
+  .iphone:nth-child(1){animation:ph 5.5s ease-in-out infinite}
+  .iphone:nth-child(2){animation:ph 5.5s ease-in-out .6s infinite}
+  .iphone:nth-child(3){animation:ph 5.5s ease-in-out 1.2s infinite}
+  @keyframes ph{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-  /* Contact + footer */
+  /* ===== Forms & Footer ===== */
   form{display:grid;gap:12px}
   input,textarea{background:#0e1020;color:#fff;border:1px solid #34406a;padding:12px;border-radius:12px;font-size:16px}
   button.btn{border:0;border-radius:12px;padding:12px;font-weight:800;cursor:pointer;color:#fff;background:linear-gradient(90deg,#7c3aed,#06b6d4);box-shadow:0 10px 26px rgba(92,69,255,.35)}
   button.btn:hover{filter:brightness(1.1)}
-  footer{border-top:1px solid #1d2236;padding:28px 0 50px;background:#0a0c14}
-  .contacts{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+  footer{border-top:1px solid #1d2236;padding:24px 0 50px;color:#cfcfe6;background:#0a0c14}
+  .contacts{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:10px}
   .contacts a{color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid #2a3353;border-radius:12px;font-weight:700}
   .contacts a:hover{background:#111831}
-  .icon{width:28px;height:28px} /* أكبر وواضحة */
-
-  @media (max-width:640px){
-    .hero h1{font-size:32px}
-    .ring{width:360px}
-    .phone{width:150px;height:250px}
-  }
+  .icon{width:28px;height:28px} /* أوضح مثل ما طلبت */
+  @media (max-width:900px){.phones{grid-template-columns:1fr;gap:18px}}
+  @media (max-width:640px){.hero h1{font-size:32px}}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
+<!-- ===== HERO ===== -->
 <div class="hero-wrap" id="top">
   <div class="hero-bg"></div>
   <div class="float f1"></div>
@@ -114,7 +109,7 @@
   <header class="nav">
     <div class="brand">
       <img src="logo.png" alt="Rabie Web Design">
-      <b id="brandText">Rabie Web Design</b>
+      <b>Rabie Web Design</b>
     </div>
     <nav>
       <a href="#services" id="navServices">الخدمات</a>
@@ -127,7 +122,7 @@
 
   <section class="hero">
     <h1 id="heroTitle">نحوّل أفكارك إلى مواقع حيّة مذهلة</h1>
-    <p id="heroDesc">نصمم مواقع حديثة بألوان نابضة وحركة أنيقة وأداء سريع وتجربة مستخدم رائعة.</p>
+    <p id="heroDesc">نصمم مواقع وتطبيقات بواجهات حديثة وسرعة عالية وتجربة استخدام لطيفة. ألوان نابضة وحركة أنيقة.</p>
     <div style="margin-top:12px">
       <a href="#contact" class="cta main" id="ctaMain">ابدأ مشروعك الآن</a>
       <a href="#services" class="cta ghost" id="ctaMore">شاهد الخدمات</a>
@@ -135,114 +130,110 @@
   </section>
 </div>
 
-<!-- ABOUT -->
+<!-- ===== ABOUT ===== -->
 <div class="wrap" id="about">
   <h2 class="section-title" id="aboutTitle">من نحن؟</h2>
-  <p class="section-sub" id="aboutDesc">فريق يجمع الإبداع والتقنية لنقدّم مواقع سريعة، متجاوبة، ومهيّأة لمحركات البحث.</p>
+  <p class="section-sub" id="aboutDesc">فريق يجمع الإبداع والتقنية لنقدّم مواقع سريعة، متجاوبة، ومهيأة لمحركات البحث.</p>
+  <div class="grid">
+    <div class="card"><span class="tag t1">واجهة حديثة</span><h3 id="aboutCard1">تصميم عصري</h3><p class="muted" id="aboutCard1p">صفحات شخصية ومواقع تعريفية ومتاجر بأفكار عصرية.</p></div>
+    <div class="card"><span class="tag t2">تقنيات سريعة</span><h3>أداء وسرعة</h3><p class="muted">تحسين صور وكود نظيف ودرجات عالية على Lighthouse.</p></div>
+    <div class="card"><span class="tag t3">جاهزية للنمو</span><h3>SEO & Analytics</h3><p class="muted">تهيئة لمحركات البحث وربط تحليلات للتحسين المستمر.</p></div>
+  </div>
 </div>
 
-<!-- ===== Circular phones (between About & Services) ===== -->
-<div class="devices-stage" aria-hidden="true">
-  <div class="ring">
-    <!-- Phone 1: Code symbol -->
-    <div class="phone p1">
-      <div class="screen">
-        <div class="badge code">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M8 9l-4 3 4 3M16 9l4 3-4 3M11 5l-3 14"/>
-          </svg>
-        </div>
+<!-- ===== iPhone 17 Pro Max style row ===== -->
+<div class="phones" aria-label="features">
+  <!-- Phone 1 -->
+  <div class="iphone">
+    <div class="screen">
+      <div class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M11 5l-3 14"/></svg>
+        <span id="p1Badge">تصميم عصري</span>
       </div>
+      <div class="phone-title" id="p1Title">واجهة حديثة</div>
+      <div class="phone-desc" id="p1Desc">ألوان نابضة، تباين واضح، وتحويل أعلى.</div>
     </div>
-    <!-- Phone 2: JS -->
-    <div class="phone p2">
-      <div class="screen" style="background:linear-gradient(160deg,#f59e0b,#ef4444)">
-        <div class="badge js">JS</div>
+  </div>
+  <!-- Phone 2 -->
+  <div class="iphone">
+    <div class="screen" style="background:linear-gradient(160deg,#f59e0b,#ef4444)">
+      <div class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 12h18M12 3v18"/></svg>
+        <span id="p2Badge">أداء وسرعة</span>
       </div>
+      <div class="phone-title" id="p2Title">تحسين الأداء</div>
+      <div class="phone-desc" id="p2Desc">كود نظيف، صور محسّنة وتجربة سلسة.</div>
     </div>
-    <!-- Phone 3: CSS -->
-    <div class="phone p3">
-      <div class="screen" style="background:linear-gradient(160deg,#22c55e,#06b6d4)">
-        <div class="badge css">CSS</div>
+  </div>
+  <!-- Phone 3 -->
+  <div class="iphone">
+    <div class="screen" style="background:linear-gradient(160deg,#22c55e,#06b6d4)">
+      <div class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 4h18v4H3zM3 10h10v10H3zM15 10h6v10h-6z"/></svg>
+        <span id="p3Badge">SEO & Analytics</span>
       </div>
+      <div class="phone-title" id="p3Title">جاهزية للنمو</div>
+      <div class="phone-desc" id="p3Desc">تهيئة لمحركات البحث مع تحليلات دقيقة.</div>
     </div>
   </div>
 </div>
 
-<!-- SERVICES -->
+<!-- ===== SERVICES ===== -->
 <div class="wrap" id="services">
   <h2 class="section-title" id="servicesTitle">خدماتنا</h2>
-  <p class="section-sub" id="servicesDesc">حلول كاملة للتصميم والتطوير — بأسعار منافسة وتسليم سريع.</p>
+  <p class="section-sub" id="servicesDesc">اختر الخدمة المناسبة لمشروعك — أسعار منافسة وتسليم سريع.</p>
   <div class="grid">
-    <div class="card">
-      <span class="tag t1" id="tag1">Personal</span>
-      <h3 id="card1Title">صفحات شخصية</h3>
-      <p class="muted" id="card1Text">صفحات خاصة ومواقع تعريفية ومتاجر بأفكار عصرية.</p>
-    </div>
-    <div class="card">
-      <span class="tag t2" id="tag2">Store</span>
-      <h3 id="card2Title">متاجر إلكترونية</h3>
-      <p class="muted" id="card2Text">سلة، دفع آمن، وتكاملات شحن مع لوحة إدارة سهلة.</p>
-    </div>
-    <div class="card">
-      <span class="tag t3" id="tag3">Business</span>
-      <h3 id="card3Title">مواقع أعمال</h3>
-      <p class="muted" id="card3Text">تعريف بالشركة والخدمات مع واجهة جذابة وسهلة الاستخدام.</p>
-    </div>
+    <div class="card"><span class="tag t1">Personal</span><h3 id="svc1">صفحات شخصية</h3><p class="muted" id="svc1p">ملفات شخصية أنيقة لتعريفك أو فريقك.</p></div>
+    <div class="card"><span class="tag t2">Store</span><h3>متجر إلكتروني</h3><p class="muted">سلة، دفع آمن، وتكامل شحن.</p></div>
+    <div class="card"><span class="tag t3">Business</span><h3>موقع تعريفي</h3><p class="muted">تعريف شركتك وأعمالك مع نموذج تواصل واضح.</p></div>
   </div>
 </div>
 
-<!-- WHY -->
+<!-- ===== WHY ===== -->
 <div class="wrap" id="why">
   <h2 class="section-title" id="whyTitle">ليش تختارنا؟</h2>
-  <p class="section-sub" id="whyDesc">أربع نقاط توضّح تفوقنا.</p>
+  <p class="section-sub" id="whyDesc">4 أسباب توضح تفوقنا.</p>
   <div class="nums">
-    <div class="num"><b>01.</b><div id="w1">تصميمات خاصة تعكس هويتك وتقنع عميلك.</div></div>
-    <div class="num"><b>02.</b><div id="w2">تسليم سريع ومواعيد دقيقة.</div></div>
+    <div class="num"><b>01.</b><div id="w1">تصميم يعكس هويتك.</div></div>
+    <div class="num"><b>02.</b><div id="w2">تسليم سريع وملتزم.</div></div>
     <div class="num"><b>03.</b><div id="w3">أسعار منافسة وخطط مرنة.</div></div>
-    <div class="num"><b>04.</b><div id="w4">دعم وتحديثات بعد الإطلاق.</div></div>
+    <div class="num"><b>04.</b><div id="w4">دعم بعد الإطلاق وتحديثات.</div></div>
   </div>
 </div>
 
-<!-- CONTACT -->
+<!-- ===== CONTACT ===== -->
 <div class="wrap" id="contact">
   <h2 class="section-title" id="contactTitle">تواصل معنا الآن</h2>
-  <p class="section-sub" id="contactDesc">أرسل تفاصيلك وسنعاودك سريعًا.</p>
+  <p class="section-sub" id="contactDesc">ارسل تفاصيلك وسنعاودك سريعًا.</p>
   <form id="contact-form" onsubmit="sendMail(event)" style="max-width:640px;margin:auto">
     <input name="name" placeholder="الاسم الكامل" required>
     <input name="email" type="email" placeholder="البريد الإلكتروني" required>
     <input name="phone" placeholder="رقم الهاتف">
     <input name="title" placeholder="عنوان الرسالة (اختياري)">
     <textarea name="message" rows="6" placeholder="أخبرنا بما تريد تنفيذه" required></textarea>
-    <button class="btn" type="submit" id="sendBtn">إرسال</button>
+    <button class="btn" type="submit">إرسال</button>
   </form>
 </div>
 
-<!-- FOOTER -->
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="wrap" style="text-align:center">
-    <div id="copyright">© 2025 Rabie Web Design — جميع الحقوق محفوظة</div>
+    <div style="color:#fff">© 2025 Rabie Web Design — جميع الحقوق محفوظة</div>
     <div class="contacts" style="margin-top:12px">
-      <a href="mailto:Ahmad.adel008@icloud.com" target="_blank" aria-label="Email">
-        <!-- Email icon (SVG واضح) -->
-        <svg class="icon" viewBox="0 0 24 24" fill="#ffffff"><path d="M4 6h16a2 2 0 0 1 2 2v.15l-10 6.25L2 8.15V8a2 2 0 0 1 2-2Zm0 4.85 10 6.25 10-6.25V18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10.85Z"/></svg>
-        <span>Ahmad.adel008@icloud.com</span>
+      <a href="mailto:Ahmad.adel008@icloud.com" target="_blank">
+        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="email"> Ahmad.adel008@icloud.com
       </a>
-      <a href="https://wa.me/60197084613" target="_blank" aria-label="WhatsApp">
-        <!-- WhatsApp icon -->
-        <svg class="icon" viewBox="0 0 32 32" fill="#25D366"><path d="M19.11 17.26c-.28-.14-1.64-.8-1.89-.89-.25-.1-.43-.14-.61.14-.18.28-.71.88-.87 1.06-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.42-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.12-.12.28-.32.41-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.48-.84-2.03-.22-.53-.45-.46-.61-.46h-.52c-.18 0-.48.07-.73.34-.25.28-.96.94-.96 2.3s.98 2.66 1.12 2.84c.14.18 1.93 2.95 4.68 4.02.65.28 1.15.45 1.54.58.65.2 1.24.17 1.71.1.52-.08 1.64-.69 1.87-1.36.23-.67.23-1.25.16-1.36-.06-.12-.25-.18-.53-.32z"/><path d="M26.68 5.32C23.93 2.57 20.18 1 16.17 1 7.57 1 .61 7.96.61 16.56c0 2.74.72 5.42 2.09 7.79L1 31l6.8-1.77a15.38 15.38 0 0 0 8.37 2.47h.01c8.6 0 15.56-6.95 15.56-15.55 0-4.02-1.57-7.77-4.32-10.52zM16.18 28.6h-.01a12.02 12.02 0 0 1-6.11-1.68l-.44-.26-4.04 1.05 1.08-3.94-.29-.4a12.03 12.03 0 1 1 9.81 5.23z"/></svg>
-        <span>WhatsApp</span>
+      <a href="https://wa.me/60197084613" target="_blank">
+        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="whatsapp"> WhatsApp
       </a>
-      <a href="tel:+60197084613" aria-label="Call">
-        <!-- Phone icon -->
-        <svg class="icon" viewBox="0 0 24 24" fill="#ffffff"><path d="M6.6 10.79a15.05 15.05 0 0 0 6.61 6.61l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C11.85 21 3 12.15 3 1a1 1 0 0 1 1-1h3.47a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z"/></svg>
-        <span id="callTxt">اتصال مباشر</span>
+      <a href="tel:+60197084613">
+        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="phone"> اتصال مباشر
       </a>
     </div>
   </div>
 </footer>
 
-<!-- EmailJS -->
+<!-- ===== EmailJS ===== -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
  (function(){ emailjs.init("gm2FOzpslyw2cnZb5"); })();
@@ -252,55 +243,51 @@
      name:document.querySelector('[name=name]').value,
      email:document.querySelector('[name=email]').value,
      phone:document.querySelector('[name=phone]').value,
-     title:document.querySelector('[name=title]')?.value||'',
+     title:document.querySelector('[name=title]').value,
      message:document.querySelector('[name=message]').value
-   }).then(()=>{ alert("تم الإرسال ✅"); document.getElementById('contact-form').reset(); },
-            (err)=>{ console.error(err); alert("تعذر الإرسال ❌"); });
+   }).then(function(){ alert("تم الإرسال ✅"); document.getElementById('contact-form').reset(); },
+            function(err){ console.error(err); alert("تعذر الإرسال ❌"); });
  }
 
- /* ترجمة كاملة */
- const t={
-   ar:{navServices:"الخدمات",navAbout:"من نحن؟",navWhy:"ليش تختارنا؟",navContact:"تواصل",
-       heroTitle:"نحوّل أفكارك إلى مواقع حيّة مذهلة",
-       heroDesc:"نصمم مواقع حديثة بألوان نابضة وحركة أنيقة وأداء سريع وتجربة مستخدم رائعة.",
-       ctaMain:"ابدأ مشروعك الآن",ctaMore:"شاهد الخدمات",
-       aboutTitle:"من نحن؟",
-       aboutDesc:"فريق يجمع الإبداع والتقنية لنقدّم مواقع سريعة، متجاوبة، ومهيّأة لمحركات البحث.",
-       servicesTitle:"خدماتنا",
-       servicesDesc:"حلول كاملة للتصميم والتطوير — بأسعار منافسة وتسليم سريع.",
-       tag1:"Personal",tag2:"Store",tag3:"Business",
-       card1Title:"صفحات شخصية",card1Text:"صفحات خاصة ومواقع تعريفية ومتاجر بأفكار عصرية.",
-       card2Title:"متاجر إلكترونية",card2Text:"سلة، دفع آمن، وتكاملات شحن مع لوحة إدارة سهلة.",
-       card3Title:"مواقع أعمال",card3Text:"تعريف بالشركة والخدمات مع واجهة جذابة وسهلة الاستخدام.",
-       whyTitle:"ليش تختارنا؟",whyDesc:"أربع نقاط توضّح تفوقنا.",
-       w1:"تصميمات خاصة تعكس هويتك وتقنع عميلك.",w2:"تسليم سريع ومواعيد دقيقة.",w3:"أسعار منافسة وخطط مرنة.",w4:"دعم وتحديثات بعد الإطلاق.",
-       contactTitle:"تواصل معنا الآن",contactDesc:"أرسل تفاصيلك وسنعاودك سريعًا.",sendBtn:"إرسال",callTxt:"اتصال مباشر",
-       brand:"Rabie Web Design",copyright:"© 2025 Rabie Web Design — جميع الحقوق محفوظة"},
-   en:{navServices:"Services",navAbout:"About",navWhy:"Why Us",navContact:"Contact",
-       heroTitle:"We turn your ideas into stunning live websites",
-       heroDesc:"Modern websites with vibrant colors, smooth motion and fast performance.",
-       ctaMain:"Start your project",ctaMore:"See services",
-       aboutTitle:"Who we are",
-       aboutDesc:"A creative tech team building fast, responsive and SEO-ready websites.",
-       servicesTitle:"Our Services",
-       servicesDesc:"Full design & development solutions — competitive pricing and fast delivery.",
-       tag1:"Personal",tag2:"Store",tag3:"Business",
-       card1Title:"Personal Pages",card1Text:"Personal pages, profile sites and creative stores.",
-       card2Title:"Online Stores",card2Text:"Secure checkout, shipping integrations and easy management.",
-       card3Title:"Business Websites",card3Text:"Showcase your company, services and clear contact.",
-       whyTitle:"Why choose us?",whyDesc:"Four quick reasons that set us apart.",
-       w1:"Tailored designs that reflect your brand and convert.",w2:"Fast delivery and strict timelines.",w3:"Competitive pricing and flexible plans.",w4:"Post-launch support and updates.",
-       contactTitle:"Contact us now",contactDesc:"Send your details and we’ll get back quickly.",sendBtn:"Send",callTxt:"Call Now",
-       brand:"Rabie Web Design",copyright:"© 2025 Rabie Web Design — All rights reserved"}
- };
- const ids=["navServices","navAbout","navWhy","navContact","heroTitle","heroDesc","ctaMain","ctaMore","aboutTitle","aboutDesc","servicesTitle","servicesDesc","tag1","tag2","tag3","card1Title","card1Text","card2Title","card2Text","card3Title","card3Text","whyTitle","whyDesc","w1","w2","w3","w4","contactTitle","contactDesc","sendBtn","callTxt","brandText","copyright"];
- document.getElementById('toggleLang').onclick=function(){
-   const useEN=this.textContent==='EN',dict=useEN?t.en:t.ar;
-   ids.forEach(id=>{const el=document.getElementById(id); if(el) el.textContent=dict[id];});
-   document.documentElement.dir=useEN?'ltr':'rtl';
-   document.documentElement.lang=useEN?'en':'ar';
-   this.textContent=useEN?'AR':'EN';
- };
+ /* ===== Full AR/EN toggle (includes phones & services changes) ===== */
+ const t={ar:{
+   navServices:"الخدمات",navAbout:"من نحن؟",navWhy:"ليش تختارنا؟",navContact:"تواصل",
+   heroTitle:"نحوّل أفكارك إلى مواقع حيّة مذهلة",
+   heroDesc:"نصمم مواقع وتطبيقات بواجهات حديثة وسرعة عالية وتجربة استخدام لطيفة. ألوان نابضة وحركة أنيقة.",
+   ctaMain:"ابدأ مشروعك الآن",ctaMore:"شاهد الخدمات",
+   aboutTitle:"من نحن؟",aboutDesc:"فريق يجمع الإبداع والتقنية لنقدّم مواقع سريعة، متجاوبة، ومهيأة لمحركات البحث.",
+   aboutCard1:"تصميم عصري",aboutCard1p:"صفحات شخصية ومواقع تعريفية ومتاجر بأفكار عصرية.",
+   servicesTitle:"خدماتنا",servicesDesc:"اختر الخدمة المناسبة لمشروعك — أسعار منافسة وتسليم سريع.",
+   svc1:"صفحات شخصية",svc1p:"ملفات شخصية أنيقة لتعريفك أو فريقك.",
+   whyTitle:"ليش تختارنا؟",whyDesc:"4 أسباب توضح تفوقنا.",
+   w1:"تصميم يعكس هويتك.",w2:"تسليم سريع وملتزم.",w3:"أسعار منافسة وخطط مرنة.",w4:"دعم بعد الإطلاق وتحديثات.",
+   contactTitle:"تواصل معنا الآن",contactDesc:"ارسل تفاصيلك وسنعاودك سريعًا.",
+   p1Badge:"تصميم عصري",p1Title:"واجهة حديثة",p1Desc:"ألوان نابضة، تباين واضح، وتحويل أعلى.",
+   p2Badge:"أداء وسرعة",p2Title:"تحسين الأداء",p2Desc:"كود نظيف، صور محسّنة وتجربة سلسة.",
+   p3Badge:"SEO & Analytics",p3Title:"جاهزية للنمو",p3Desc:"تهيئة لمحركات البحث مع تحليلات دقيقة."
+ },en:{
+   navServices:"Services",navAbout:"About",navWhy:"Why Us",navContact:"Contact",
+   heroTitle:"We turn your ideas into stunning live websites",
+   heroDesc:"Modern UI, fast performance and delightful UX. Lively gradients and smooth motion.",
+   ctaMain:"Start your project",ctaMore:"See services",
+   aboutTitle:"Who we are",aboutDesc:"A creative tech team building fast, responsive and SEO-ready websites.",
+   aboutCard1:"Modern Design",aboutCard1p:"Personal pages, profile sites and creative stores.",
+   servicesTitle:"Our Services",servicesDesc:"Pick what fits your goals — competitive pricing and fast delivery.",
+   svc1:"Personal Pages",svc1p:"Clean personal/portfolio pages to present you or your team.",
+   whyTitle:"Why choose us?",whyDesc:"Four quick reasons that set us apart.",
+   w1:"Design that reflects your brand.",w2:"Fast delivery and reliability.",w3:"Competitive pricing and flexible plans.",w4:"Post-launch support and updates.",
+   contactTitle:"Contact Us Now",contactDesc:"Send your details and we’ll get back quickly.",
+   p1Badge:"Modern Design",p1Title:"Fresh UI",p1Desc:"Vibrant colors, clear contrast and better conversion.",
+   p2Badge:"Performance",p2Title:"Speed & Optimization",p2Desc:"Clean code, optimized images and smooth UX.",
+   p3Badge:"SEO & Analytics",p3Title:"Growth Ready",p3Desc:"Search-friendly with actionable insights."
+ }};
+ const ids=["navServices","navAbout","navWhy","navContact","heroTitle","heroDesc","ctaMain","ctaMore","aboutTitle","aboutDesc",
+            "aboutCard1","aboutCard1p","servicesTitle","servicesDesc","svc1","svc1p","whyTitle","whyDesc","w1","w2","w3","w4",
+            "contactTitle","contactDesc","p1Badge","p1Title","p1Desc","p2Badge","p2Title","p2Desc","p3Badge","p3Title","p3Desc"];
+ document.getElementById('toggleLang')?.addEventListener('click',function(){
+   const useEN=this.textContent==='EN',k=useEN?'en':'ar'; ids.forEach(id=>{const el=document.getElementById(id); if(el) el.textContent=t[k][id];});
+   document.documentElement.dir=useEN?'ltr':'rtl'; document.documentElement.lang=useEN?'en':'ar'; this.textContent=useEN?'AR':'EN';
+ });
 </script>
 </body>
 </html>
