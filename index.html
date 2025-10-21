@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rabie Web Design</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #000; /* الخلفية سوداء */
-      color: #d4af37; /* الكتابة ذهبية */
+      background-color: #000;
+      color: #d4af37;
       font-family: "Tajawal", sans-serif;
       margin: 0;
       padding: 0;
@@ -16,17 +16,17 @@
     }
 
     header {
-      padding: 40px 0;
+      padding: 40px 0 20px;
     }
 
     header img {
-      width: 250px;
+      width: 220px;
     }
 
     h1 {
       font-size: 36px;
       margin-top: 20px;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
     }
 
     p {
@@ -34,6 +34,7 @@
       max-width: 700px;
       margin: 10px auto 30px;
       font-size: 18px;
+      line-height: 1.6;
     }
 
     .btn {
@@ -58,17 +59,70 @@
     }
 
     footer {
-      padding: 20px;
+      padding: 30px 20px;
       border-top: 1px solid #333;
-      color: #777;
-      font-size: 14px;
+      color: #d4af37;
+      font-size: 16px;
+      background-color: #000;
+    }
+
+    footer .contact-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-top: 15px;
+    }
+
+    footer a {
+      color: #d4af37;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 17px;
+      transition: 0.3s;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    footer img.icon {
+      width: 24px;
+      height: 24px;
+      filter: invert(82%) sepia(62%) saturate(562%) hue-rotate(5deg) brightness(102%) contrast(90%);
+      transition: 0.3s;
+    }
+
+    footer a:hover img.icon {
+      transform: scale(1.15);
+    }
+
+    input, textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #d4af37;
+      background: #000;
+      color: #d4af37;
+      font-size: 16px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: grid;
+      gap: 12px;
+      text-align: right;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- ارفع الصورة بنفس اسم الملف أدناه إلى المستودع -->
     <img src="logo.png" alt="Rabie Web Design Logo">
     <h1>Rabie Web Design</h1>
     <p>نصمم مواقع أنيقة وسريعة بلونك المفضل وذوقك الخاص.</p>
@@ -77,23 +131,39 @@
 
   <section id="services">
     <h2>خدماتنا</h2>
-    <p>تصميم مواقع، متاجر إلكترونية، صفحات تعريفية، وحلول برمجية احترافية.</p>
+    <p>نقدم خدمات تصميم المواقع، تطوير المتاجر الإلكترونية، والبرمجة المخصصة للشركات والأفراد.</p>
   </section>
 
   <section id="contact">
     <h2>تواصل معنا</h2>
-    <form action="https://formspree.io/f/your-id" method="POST" style="max-width:500px;margin:auto;display:grid;gap:10px;">
-      <input type="text" name="name" placeholder="الاسم" required style="padding:12px;border-radius:8px;border:1px solid #d4af37;background:#000;color:#d4af37;">
-      <input type="email" name="email" placeholder="البريد الإلكتروني" required style="padding:12px;border-radius:8px;border:1px solid #d4af37;background:#000;color:#d4af37;">
-      <input type="text" name="phone" placeholder="رقم الهاتف" style="padding:12px;border-radius:8px;border:1px solid #d4af37;background:#000;color:#d4af37;">
-      <textarea name="message" rows="4" placeholder="رسالتك" style="padding:12px;border-radius:8px;border:1px solid #d4af37;background:#000;color:#d4af37;"></textarea>
+    <form id="contact-form" onsubmit="sendMail(event)">
+      <input type="text" name="name" placeholder="الاسم الكامل" required>
+      <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+      <input type="text" name="title" placeholder="عنوان الرسالة">
+      <textarea name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
       <button type="submit" class="btn">إرسال</button>
     </form>
   </section>
 
   <footer>
-    © 2025 Rabie Web Design — جميع الحقوق محفوظة
-  </footer>
+    <div>© 2025 Rabie Web Design — جميع الحقوق محفوظة</div>
 
-</body>
-</html>
+    <div class="contact-info">
+      <!-- يفتح تطبيق البريد مباشرة -->
+      <a href="mailto:Ahmad.adel008@icloud.com" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="icon" alt="Email">
+        <span>Ahmad.adel008@icloud.com</span>
+      </a>
+
+      <!-- يفتح محادثة واتساب مباشرة -->
+      <a href="https://wa.me/60197084613" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" class="icon" alt="WhatsApp">
+        <span>WhatsApp</span>
+      </a>
+
+      <!-- يتصل مباشرة -->
+      <a href="tel:+60197084613">
+        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" class="icon" alt="Phone">
+        <span>اتصال مباشر</span>
+      </a>
+    </div>
