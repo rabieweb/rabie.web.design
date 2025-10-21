@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rabie Web Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000; /* الخلفية سوداء */
+      color: #d4af37; /* الكتابة ذهبية */
+      font-family: "Tajawal", sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px 0;
+    }
+
+    header img {
+      width: 250px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-top: 20px;
+      letter-spacing: 2px;
+    }
+
+    p {
+      color: #c9a227;
+      max-width: 700px;
+      margin: 10px auto 30px;
+      font-size: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: transparent;
+      border: 2px solid #d4af37;
+      border-radius: 10px;
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #d4af37;
+      color: #000;
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    footer {
+      padding: 20px;
+      border-top: 1px solid #333;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!-- ارفع الصورة بنفس اسم الملف أدناه إلى المستودع -->
+    <img src="logo.png" alt="Rabie Web Design Logo">
+    <h1>Rabie Web Design</h1>
+    <p>نصمم مواقع أنيقة وسريعة بلونك المفضل وذوقك الخاص.</p>
+    <a href="#contact" class="btn">تواصل معنا</a>
+  </header>
+
+  <section id="services">
+    <h2>خدماتنا</h2>
+    <p>تصميم مواقع، متاجر إلكترونية، صفحات تعريفية، وحلول برمجية احترافية.</p>
+  </section>
+
+  <section id="contact">
+    <h2>تواصل معنا</h2>
+    <form action="https://formspree.io/f/your-id" method="POST" style="max-width:500px;margin:auto;display:grid;gap:10px;">
+      <input type="text" name="name" placeholder="الاسم" required style="padding:12px;border-radius:8px;border:1px solid #d4af37;background:#000;color:#d4af37;">
+      <input type="email" name="email" placeholder="البريد الإلكتروني" required style="padding:12px;border-radius:8px;border:1px solid #d4af37;background:#000;color:#d4af37;">
+      <input type="text" name="phone" placeholder="رقم الهاتف" style="padding:12px;border-radius:8px;border:1px solid #d4af37;background:#000;color:#d4af37;">
+      <textarea name="message" rows="4" placeholder="رسالتك" style="padding:12px;border-radius:8px;border:1px solid #d4af37;background:#000;color:#d4af37;"></textarea>
+      <button type="submit" class="btn">إرسال</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Rabie Web Design — جميع الحقوق محفوظة
+  </footer>
+
+</body>
+</html>
